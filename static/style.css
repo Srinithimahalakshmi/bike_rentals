@@ -1,0 +1,32 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.header {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+    padding: 30px;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.chart-container {
+    margin: 50px auto;
+    width: 80%;
+    max-width: 900px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 14px;
+    color: #555;
+}

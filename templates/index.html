@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bike Rental Trends (PCA Projection)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header">
+        🚴‍♂️ <strong>Bike Rental Trends (PCA Projection)</strong>
+        <p>Visualized with Principal Component Analysis</p>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="pcaChart"></canvas>
+    </div>
+
+    <footer>
+        <span>Made with ❤️ using <b>Flask + Chart.js</b></span>
+    </footer>
+
+    <script>
+        const dataPoints = {{ data | tojson | safe }};
+
+        const ctx = document.getElementById('pcaChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'PCA Projection',
+                    data: dataPoints,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Bike Rental Dataset (PCA)',
+                        color: '#333',
+                        font: {
+                            size: 18
+                        }
+                    }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'PCA Component 1' } },
+                    y: { title: { display: true, text: 'PCA Component 2' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
